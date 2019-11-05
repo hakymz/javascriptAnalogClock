@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: purple;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  height: 400px;
+  width: 400px;
+  background: whitesmoke;
+  border-radius: 50%;
+  border: 5px solid black;
+  position: relative;
+  overflow: hidden;
+}
+.clock .num {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.clock::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  border-radius: 50%;
+}
+
+.hour-hand {
+  height: 100px;
+  width: 7px;
+  background: black;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+}
+
+.min-hand {
+  height: 120px;
+  width: 6px;
+  background: black;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+}
+
+.hour-hand::before,
+.min-hand::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  z-index: 100;
+  border-bottom: 12px solid black;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  transform: translateX(-50%);
+}
+
+.sec-hand {
+  height: 150px;
+  width: 4px;
+  background: red;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  z-index: 1;
+}
+
+.sec-hand::before {
+  content: "";
+  width: 4px;
+  height: 30px;
+  background: red;
+  position: absolute;
+  top: 100%;
+  z-index: 2;
+}
